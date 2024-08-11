@@ -1,6 +1,6 @@
 ﻿namespace Calculadora
 {
-    partial class Form1
+    partial class Calculadora
     {
         /// <summary>
         /// Variable del diseñador necesaria.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Calculadora));
             this.tbDisplay = new System.Windows.Forms.TextBox();
             this.btnSuma = new System.Windows.Forms.Button();
             this.btnResta = new System.Windows.Forms.Button();
@@ -47,6 +47,7 @@
             this.btn0 = new System.Windows.Forms.Button();
             this.btnIgual = new System.Windows.Forms.Button();
             this.btnBorrar = new System.Windows.Forms.Button();
+            this.tbDisplay2 = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // tbDisplay
@@ -54,18 +55,15 @@
             this.tbDisplay.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.tbDisplay.BackColor = System.Drawing.SystemColors.ScrollBar;
+            this.tbDisplay.BackColor = System.Drawing.SystemColors.MenuBar;
             this.tbDisplay.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.tbDisplay.Font = new System.Drawing.Font("Comic Sans MS", 14F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbDisplay.Font = new System.Drawing.Font("Comic Sans MS", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbDisplay.Location = new System.Drawing.Point(12, 12);
             this.tbDisplay.Margin = new System.Windows.Forms.Padding(4);
             this.tbDisplay.Multiline = true;
             this.tbDisplay.Name = "tbDisplay";
-            this.tbDisplay.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.tbDisplay.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.tbDisplay.Size = new System.Drawing.Size(281, 89);
             this.tbDisplay.TabIndex = 0;
-            this.tbDisplay.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // btnSuma
             // 
@@ -235,6 +233,7 @@
             // btnIgual
             // 
             this.btnIgual.Font = new System.Drawing.Font("Comic Sans MS", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnIgual.ForeColor = System.Drawing.SystemColors.ControlText;
             this.btnIgual.Location = new System.Drawing.Point(203, 356);
             this.btnIgual.Name = "btnIgual";
             this.btnIgual.Size = new System.Drawing.Size(89, 54);
@@ -246,7 +245,9 @@
             // btnBorrar
             // 
             this.btnBorrar.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnBorrar.BackgroundImage")));
+            this.btnBorrar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnBorrar.Font = new System.Drawing.Font("Comic Sans MS", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnBorrar.ForeColor = System.Drawing.SystemColors.MenuText;
             this.btnBorrar.Location = new System.Drawing.Point(13, 416);
             this.btnBorrar.Name = "btnBorrar";
             this.btnBorrar.Size = new System.Drawing.Size(280, 74);
@@ -255,13 +256,25 @@
             this.btnBorrar.UseVisualStyleBackColor = true;
             this.btnBorrar.Click += new System.EventHandler(this.btnBorrar_Click);
             // 
-            // Form1
+            // tbDisplay2
+            // 
+            this.tbDisplay2.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.tbDisplay2.Font = new System.Drawing.Font("Comic Sans MS", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbDisplay2.Location = new System.Drawing.Point(42, 53);
+            this.tbDisplay2.Multiline = true;
+            this.tbDisplay2.Name = "tbDisplay2";
+            this.tbDisplay2.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.tbDisplay2.Size = new System.Drawing.Size(220, 38);
+            this.tbDisplay2.TabIndex = 18;
+            // 
+            // Calculadora
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(305, 502);
+            this.Controls.Add(this.tbDisplay2);
             this.Controls.Add(this.btnBorrar);
             this.Controls.Add(this.btnIgual);
             this.Controls.Add(this.btn0);
@@ -280,8 +293,9 @@
             this.Controls.Add(this.btnResta);
             this.Controls.Add(this.btnSuma);
             this.Controls.Add(this.tbDisplay);
-            this.Name = "Form1";
-            this.Text = "Form1";
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
+            this.Name = "Calculadora";
+            this.Text = "Calculame esta";
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -307,6 +321,7 @@
         private System.Windows.Forms.Button btn0;
         private System.Windows.Forms.Button btnIgual;
         private System.Windows.Forms.Button btnBorrar;
+        private System.Windows.Forms.TextBox tbDisplay2;
     }
 }
 

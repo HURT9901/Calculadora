@@ -10,12 +10,12 @@ using System.Windows.Forms;
 
 namespace Calculadora
 {
-    public partial class Form1 : Form
+    public partial class Calculadora : Form
     {
         private double Valor1, Valor2, resultado;
         private int caso, alter=1;
         private string error;
-        public Form1()
+        public Calculadora()
         {
             InitializeComponent();
         }
@@ -23,80 +23,73 @@ namespace Calculadora
         private void btn0_Click(object sender, EventArgs e)
         {
             //numero 0
-            tbDisplay.Text = "";
-            tbDisplay.Text += "0";
+            tbDisplay2.Text = "0";
 
         }
 
         private void btn1_Click(object sender, EventArgs e)
         {
             //numero 1
-            tbDisplay.Text = "";
-            tbDisplay.Text += "1";
+            tbDisplay2.Text = "1";
         }
 
         private void btn2_Click(object sender, EventArgs e)
         {
             //numero 2
-            tbDisplay.Text = "";
-            tbDisplay.Text += "2";
+            tbDisplay2.Text = "2";
 
         }
 
         private void btn3_Click(object sender, EventArgs e)
         {
             //numero 3
-            tbDisplay.Text = "";
-            tbDisplay.Text += "3";
+
+            tbDisplay2.Text = "3";
         }
 
         private void btn4_Click(object sender, EventArgs e)
         {
             //numero 4
-            tbDisplay.Text = "";
-            tbDisplay.Text += "4";
+
+            tbDisplay2.Text = "4";
         }
 
         private void btn5_Click(object sender, EventArgs e)
         {
             //numero 5
-            tbDisplay.Text = "";
-            tbDisplay.Text += "5";
+            tbDisplay2.Text = "5";
         }
 
         private void btn6_Click(object sender, EventArgs e)
         {
             //numero 6
-            tbDisplay.Text = "";
-            tbDisplay.Text += "6";
+            tbDisplay2.Text = "6";
         }
         private void btn7_Click(object sender, EventArgs e)
         {
             //numero 7
-            tbDisplay.Text = "";
-            tbDisplay.Text += "7";
+
+            tbDisplay2.Text = "7";
         }
 
         private void btn8_Click(object sender, EventArgs e)
         {
             //numero 8
-            tbDisplay.Text = "";
-            tbDisplay.Text += "8";
+            tbDisplay2.Text = "8";
         }
 
         private void btn9_Click(object sender, EventArgs e)
         {
             //numero 9
-            tbDisplay.Text = "";
-            tbDisplay.Text += "9";
+            tbDisplay2.Text = "9";
         }
 
         private void btnSuma_Click(object sender, EventArgs e)
         {
             //Suma
             caso = 1;
-            Valor1 = Convert.ToDouble(tbDisplay.Text);
-            tbDisplay.Text = "";
+            Valor1 = Convert.ToDouble(tbDisplay2.Text);
+            tbDisplay.Text = tbDisplay2.Text + "+";
 
         }
 
@@ -104,35 +97,37 @@ namespace Calculadora
         {
             //Resta
             caso = 2;
-            Valor1 = Convert.ToDouble(tbDisplay.Text);
-            tbDisplay.Text = "";
+            Valor1 = Convert.ToDouble(tbDisplay2.Text);
+            tbDisplay.Text = tbDisplay2.Text + "-";
         }
 
         private void btnMulti_Click(object sender, EventArgs e)
         {
             //Multi
             caso = 3;
-            Valor1 = Convert.ToDouble(tbDisplay.Text);
-            tbDisplay.Text = "";
+            Valor1 = Convert.ToDouble(tbDisplay2.Text);
+            tbDisplay.Text = tbDisplay2.Text + "*";
         }
 
         private void btnDivi_Click(object sender, EventArgs e)
         {
             //Divi
             caso = 4;
-            Valor1 = Convert.ToDouble(tbDisplay.Text);
-            tbDisplay.Text = "";
+            Valor1 = Convert.ToDouble(tbDisplay2.Text);
+            tbDisplay.Text = tbDisplay2.Text + "/";
         }
 
         private void btnPunto_Click(object sender, EventArgs e)
         {
             //punto
+            tbDisplay2.Text += ".";
         }
 
         private void btnIgual_Click(object sender, EventArgs e)
         {
             //Igual
-            Valor2 = Convert.ToDouble(tbDisplay.Text);
+            Valor2 = Convert.ToDouble(tbDisplay2.Text);
+            tbDisplay.Text += Valor2.ToString();
 
             switch (caso)
             {
@@ -150,20 +145,26 @@ namespace Calculadora
                         resultado = Valor1 / Valor2;
                     else
                         alter = 0;
-                        error = "Qué pasa, reina?\nDivisión por 0? \nNo pasa nada,\nyo te divido igualmente";
-                    break;     
+                    error = "No se divide por 0, pero yo te divido a ti";
+                    break;
             }
 
             if (alter == 1)
-                tbDisplay.Text = resultado.ToString();
+            {
+                tbDisplay.Text += "=" + resultado.ToString();
+            }
             else
+            {
                 tbDisplay.Text = error;
+                 alter = 1;
+             }
         }
 
         private void btnBorrar_Click(object sender, EventArgs e)
         {
             //Borrar
             tbDisplay.Text = "";
+            tbDisplay2.Text = "";
         }
     }
 }
