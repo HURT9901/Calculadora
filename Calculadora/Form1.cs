@@ -14,9 +14,11 @@ namespace Calculadora
     {
         private double Valor1, Valor2, resultado;
         private int caso, alter=1;
-        private string error;
+        private string error, ruta="";
+        
         public Calculadora()
         {
+            ruta = "C:\\Repositorios\\Calculadora\\audio\\music.mp3";
             InitializeComponent();
         }
 
@@ -112,6 +114,17 @@ namespace Calculadora
             tbDisplay2.Text = "";
         }
 
+        private void btnMistery_Click(object sender, EventArgs e)
+        {
+            axWindowsMediaPlayer1.URL = ruta;
+            axWindowsMediaPlayer1.Ctlcontrols.play();
+        }
+
+        private void axWindowsMediaPlayer1_Enter(object sender, EventArgs e)
+        {
+
+        }
+
         private void btnDivi_Click(object sender, EventArgs e)
         {
             //Divi
@@ -130,38 +143,46 @@ namespace Calculadora
         private void btnIgual_Click(object sender, EventArgs e)
         {
             //Igual
-            Valor2 = Convert.ToDouble(tbDisplay2.Text);
-            tbDisplay.Text += Valor2.ToString();
-
-            switch (caso)
+            if (Valor1 == 0)
             {
-                case 1:
-                    resultado = Valor1 + Valor2;
-                    break;
-                case 2:
-                    resultado = Valor1 - Valor2;
-                    break;
-                case 3:
-                    resultado = Valor1 * Valor2;
-                    break;
-                case 4:
-                    if (Valor2 != 0)
-                        resultado = Valor1 / Valor2;
-                    else
-                        alter = 0;
-                    error = "No se divide por 0, pero yo te divido a ti";
-                    break;
-            }
-
-            if (alter == 1)
-            {
-                tbDisplay.Text += "=" + resultado.ToString();
+                error = "Normalmente una operacion es con dos numeros xd";
+                tbDisplay.Text = error;
             }
             else
             {
-                tbDisplay.Text = error;
-                 alter = 1;
-             }
+                Valor2 = Convert.ToDouble(tbDisplay2.Text);
+                tbDisplay.Text += Valor2.ToString();
+
+                switch (caso)
+                {
+                    case 1:
+                        resultado = Valor1 + Valor2;
+                        break;
+                    case 2:
+                        resultado = Valor1 - Valor2;
+                        break;
+                    case 3:
+                        resultado = Valor1 * Valor2;
+                        break;
+                    case 4:
+                        if (Valor2 != 0)
+                            resultado = Valor1 / Valor2;
+                        else
+                            alter = 0;
+                        error = "No se divide por 0, pero yo te divido a ti";
+                        break;
+                }
+
+                if (alter == 1)
+                {
+                    tbDisplay.Text += "=" + resultado.ToString();
+                }
+                else
+                {
+                    tbDisplay.Text = error;
+                    alter = 1;
+                }
+            }
         }
 
         private void btnBorrar_Click(object sender, EventArgs e)
@@ -169,6 +190,7 @@ namespace Calculadora
             //Borrar
             tbDisplay.Text = "";
             tbDisplay2.Text = "";
+            Valor1 = 0;
         }
     }
 }

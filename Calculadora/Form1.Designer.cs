@@ -48,6 +48,9 @@
             this.btnIgual = new System.Windows.Forms.Button();
             this.btnBorrar = new System.Windows.Forms.Button();
             this.tbDisplay2 = new System.Windows.Forms.TextBox();
+            this.axWindowsMediaPlayer1 = new AxWMPLib.AxWindowsMediaPlayer();
+            this.btnMistery = new System.Windows.Forms.Button();
+            ((System.ComponentModel.ISupportInitialize)(this.axWindowsMediaPlayer1)).BeginInit();
             this.SuspendLayout();
             // 
             // tbDisplay
@@ -260,12 +263,35 @@
             // 
             this.tbDisplay2.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.tbDisplay2.Font = new System.Drawing.Font("Comic Sans MS", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbDisplay2.Location = new System.Drawing.Point(42, 53);
+            this.tbDisplay2.Location = new System.Drawing.Point(42, 61);
             this.tbDisplay2.Multiline = true;
             this.tbDisplay2.Name = "tbDisplay2";
             this.tbDisplay2.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.tbDisplay2.Size = new System.Drawing.Size(220, 38);
+            this.tbDisplay2.Size = new System.Drawing.Size(220, 30);
             this.tbDisplay2.TabIndex = 18;
+            // 
+            // axWindowsMediaPlayer1
+            // 
+            this.axWindowsMediaPlayer1.Enabled = true;
+            this.axWindowsMediaPlayer1.Location = new System.Drawing.Point(282, 12);
+            this.axWindowsMediaPlayer1.Name = "axWindowsMediaPlayer1";
+            this.axWindowsMediaPlayer1.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("axWindowsMediaPlayer1.OcxState")));
+            this.axWindowsMediaPlayer1.Size = new System.Drawing.Size(10, 10);
+            this.axWindowsMediaPlayer1.TabIndex = 19;
+            this.axWindowsMediaPlayer1.Enter += new System.EventHandler(this.axWindowsMediaPlayer1_Enter);
+            // 
+            // btnMistery
+            // 
+            this.btnMistery.BackColor = System.Drawing.SystemColors.MenuHighlight;
+            this.btnMistery.Font = new System.Drawing.Font("Constantia", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnMistery.Location = new System.Drawing.Point(271, 467);
+            this.btnMistery.Margin = new System.Windows.Forms.Padding(0);
+            this.btnMistery.Name = "btnMistery";
+            this.btnMistery.Size = new System.Drawing.Size(31, 23);
+            this.btnMistery.TabIndex = 20;
+            this.btnMistery.Text = "?";
+            this.btnMistery.UseVisualStyleBackColor = false;
+            this.btnMistery.Click += new System.EventHandler(this.btnMistery_Click);
             // 
             // Calculadora
             // 
@@ -274,6 +300,8 @@
             this.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(305, 502);
+            this.Controls.Add(this.btnMistery);
+            this.Controls.Add(this.axWindowsMediaPlayer1);
             this.Controls.Add(this.tbDisplay2);
             this.Controls.Add(this.btnBorrar);
             this.Controls.Add(this.btnIgual);
@@ -296,6 +324,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "Calculadora";
             this.Text = "Calculame esta";
+            ((System.ComponentModel.ISupportInitialize)(this.axWindowsMediaPlayer1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -322,6 +351,8 @@
         private System.Windows.Forms.Button btnIgual;
         private System.Windows.Forms.Button btnBorrar;
         private System.Windows.Forms.TextBox tbDisplay2;
+        private AxWMPLib.AxWindowsMediaPlayer axWindowsMediaPlayer1;
+        private System.Windows.Forms.Button btnMistery;
     }
 }
 
